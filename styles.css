@@ -27,16 +27,18 @@ body {
   width: 100%;
 }
 
+.article_text_container {
+  margin: 15px;
+}
+
 .article_content_heading {
-  margin: 25px;
   font-size: 1.25rem;
-  font-weight: 800;
   color: hsl(217, 19%, 35%);
+  margin-bottom: 10px;
 }
 
 .article_content_text {
   font-size: 0.875rem;
-  margin: 0 30px 15px 30px;
   color: hsl(214, 17%, 51%);
 }
 
