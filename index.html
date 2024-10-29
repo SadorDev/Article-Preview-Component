@@ -12,49 +12,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 
-  <title>Frontend Mentor | Article preview component</title>
-
+  <title>Frontend Mentor | Article Preview Component</title>
 </head>
 
 <body>
-  <article class="article_card">
+  <article class="article_card" aria-labelledby="article_content_heading">
+
     <div class="article_image_container">
-      <img src="./images/drawers.jpg" alt="card_poster">
+      <img class="article_image" src="./images/drawers.jpg" alt="Green chest of drawers with decorative items">
     </div>
-    <section class="article_content">
 
-      <div class="article_text_container">
-        <h1 class="article_content_heading">Shift the overall look and feel by adding these wonderful touches to
-          furniture
-          in your home</h1>
-        <p class="article_content_text">Ever been in a room and felt like something was missing? Perhaps it felt
-          slightly
-          bare and uninviting. I’ve got some simple tips to help you make any room feel complete.</p>
-      </div>
-      <div class="article_author">
-        <figure class="article_profile">
-          <img class="article_profile_avatar" src="images/avatar-michelle.jpg" alt="Michelle_profile_picture" />
-          <figcaption class="article_title_name">Michelle Appleton</figcaption>
-        </figure>
-        <time class="article_date" datetime="2020-06-28">28 Jun 2020</time>
-      </div>
+    <div class="article_content">
+      <h2 class="article_content_heading">Shift the overall look and feel by adding these wonderful touches to furniture
+        in your home</h2>
+      <p class="article_content_text">Ever been in a room and felt like something was missing? Perhaps it felt slightly
+        bare and uninviting. I’ve got some simple tips to help you make any room feel complete.</p>
 
-      <div class="button_container">
-        <button id="hover" class="share_button" onclick="toggleHover()" type="button">
-          <img class="toggle_icons" src="./images/icon-share.svg" alt="share-icon" />
-          <div class="visible">
-            <p class="toggle_text"> SHARE </p>
-            <img class="toggle_icons" src="./images/icon-facebook.svg" alt="facebook icon" />
-            <img class="toggle_icons" src="./images/icon-pinterest.svg" alt="pintrest icon" />
-            <img class="toggle_icons" src="./images/icon-twitter.svg" alt="twitter icon " />
-          </div>
-        </button>
-      </div>
-
-    </section>
-
+        <div class="article_profile">
+          <img class="article_profile_avatar" src="images/avatar-michelle.jpg" alt="Photo of Michelle Appleton">
+          <!-- <span class="article_title_name">Michelle Appleton</span> -->
+          <!-- <time class="article_date" datetime="2020-06-28">28 Jun 2020</time> -->
+          
+          <button class="share_button" onclick="toggleHover()" id="hover" aria-label="Share article" type="button">
+            <img class="share_icon" src="./images/icon-share.svg" alt="Share icon">
+          </button>
+          
+        </div>
+    </div>
   </article>
-  <script src="app.js"> </script>
+
+
+  <!-- POPUP CONTAINER -->
+
+  <!-- <div class="share_popup">
+          <h3 class="share_popup_heading">Share</h3>
+          <a href="" aria-label="Share on Facebook">
+            <img class="toggle_icons" src="./images/icon-facebook.svg" alt="Facebook icon">
+          </a>
+          <a href="" aria-label="Share on Pinterest">
+            <img class="toggle_icons" src="./images/icon-pinterest.svg" alt="Pinterest icon">
+          </a>
+          <a href="" aria-label="Share on Twitter">
+            <img class="toggle_icons" src="./images/icon-twitter.svg" alt="Twitter icon">
+          </a>
+        </div> -->
+
+  <script src="app.js"></script>
 </body>
 
 </html>

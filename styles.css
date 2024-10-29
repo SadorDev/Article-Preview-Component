@@ -1,34 +1,93 @@
-* {
-  margin: 0;
-  padding: 0;
+/*  RESET  */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-family: "Manrope", sans-serif;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Ensure images and picture elements scale with their containers and are displayed as block elements */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove default border and enable pointer cursor for buttons */
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 body {
-  background-color: #f3f3f3;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  background-color: #f3f3f3;
 }
 
+/* MAIN CARD */
 .article_card {
   display: flex;
-  max-width: 700px;
-  background-color: #ffffff;
+  max-width: 775px;
+  overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  background-color: #ffffff;
 }
 
-.article_image_container img {
-  display: block;
-  width: 100%;
+/* LEFT SIDE: IMAGE  */
+.article_image_container {
+  flex: 1;
 }
 
-.article_text_container {
-  margin: 15px;
+/* RIGHT SIDE CONTENT */
+.article_content {
+  flex: 1;
+  padding: 2rem;
 }
 
 .article_content_heading {
@@ -42,9 +101,18 @@ body {
   color: hsl(214, 17%, 51%);
 }
 
+.article_profile {
+  display: flex;
+  align-items: baseline;
+}
+
+.article_profile_avatar,
+.share_button {
+  display: flex;
+}
+
 .article_profile_avatar {
   position: relative;
-  left: 1em;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -52,35 +120,32 @@ body {
 
 .article_title_name {
   position: relative;
-  left: 4.5rem;
-  bottom: 2.5rem;
+  left: 3.5rem;
   font-size: 0.875rem;
   font-weight: 700;
   color: hsl(217, 19%, 35%);
 }
 
 .article_date {
-  position: relative;
-  left: 4.5rem;
-  bottom: 2.5rem;
   font-size: 0.75rem;
   color: hsl(214, 17%, 51%);
 }
 
-.button_container {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  cursor: pointer;
-  height: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.share_button {
+  /* position: relative; */
+  margin-left: auto;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
-/* PopUp Container */
-.button_container .visible {
+.share_button img {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* POPUP CONTAINER */
+.share_popup .visible {
   visibility: hidden;
   width: 160px;
   background-color: hsl(217, 19%, 35%);
@@ -95,7 +160,7 @@ body {
   margin-left: -80px;
 }
 
-.button_container .visible::after {
+.share_popup .visible::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -106,46 +171,16 @@ body {
   border-color: #fff transparent transparent transparent;
 }
 
-.button_container .show {
+.share_popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
 }
 
-.share_button {
-  position: relative;
-  bottom: 6em;
-  right: 50px;
-  width: 35px;
-  height: 35px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.share_button img {
-  width: 1.25em;
-  height: 1.25em;
-}
-
 /* Media Query */
-@media (max-width: 426px) {
+@media (max-width: 600px) {
   .article_card {
     flex-direction: column;
-  }
-
-  .article_image_container {
-    width: 100%;
-  }
-
-  .article_image_container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .article_content {
-    padding: 15px;
   }
 
   .article_author {
@@ -157,10 +192,6 @@ body {
   .article_profile {
     margin-right: 0;
     margin-bottom: 10px;
-  }
-
-  .button_container {
-    align-self: flex-end;
   }
 
   .article_date {
